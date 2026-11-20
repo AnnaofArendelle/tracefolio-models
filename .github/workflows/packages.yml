@@ -35,7 +35,7 @@ jobs:
     container: ubuntu:22.04
     timeout-minutes: 150
     steps:
-      - run: apt-get update && apt-get install -y ca-certificates git curl gh build-essential cmake pkg-config nasm xz-utils zstd ffmpeg sudo
+      - run: apt-get update && apt-get install -y ca-certificates git curl gh build-essential cmake pkg-config nasm xz-utils zstd ffmpeg sudo python3
       - uses: actions/checkout@v4
       - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - uses: astral-sh/setup-uv@v6
