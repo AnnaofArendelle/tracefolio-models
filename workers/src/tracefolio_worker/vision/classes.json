@@ -1,0 +1,405 @@
+{
+  "schema": 1,
+  "classes": [
+    {
+      "id": 0,
+      "label": "person",
+      "zh": "人物"
+    },
+    {
+      "id": 1,
+      "label": "bicycle",
+      "zh": "自行车"
+    },
+    {
+      "id": 2,
+      "label": "car",
+      "zh": "汽车"
+    },
+    {
+      "id": 3,
+      "label": "motorcycle",
+      "zh": "摩托车"
+    },
+    {
+      "id": 4,
+      "label": "airplane",
+      "zh": "飞机"
+    },
+    {
+      "id": 5,
+      "label": "bus",
+      "zh": "公交车"
+    },
+    {
+      "id": 6,
+      "label": "train",
+      "zh": "火车"
+    },
+    {
+      "id": 7,
+      "label": "truck",
+      "zh": "卡车"
+    },
+    {
+      "id": 8,
+      "label": "boat",
+      "zh": "船"
+    },
+    {
+      "id": 9,
+      "label": "traffic_light",
+      "zh": "交通信号灯"
+    },
+    {
+      "id": 10,
+      "label": "fire_hydrant",
+      "zh": "消防栓"
+    },
+    {
+      "id": 11,
+      "label": "stop_sign",
+      "zh": "停止标志"
+    },
+    {
+      "id": 12,
+      "label": "parking_meter",
+      "zh": "停车计时器"
+    },
+    {
+      "id": 13,
+      "label": "bench",
+      "zh": "长椅"
+    },
+    {
+      "id": 14,
+      "label": "bird",
+      "zh": "鸟"
+    },
+    {
+      "id": 15,
+      "label": "cat",
+      "zh": "猫"
+    },
+    {
+      "id": 16,
+      "label": "dog",
+      "zh": "狗"
+    },
+    {
+      "id": 17,
+      "label": "horse",
+      "zh": "马"
+    },
+    {
+      "id": 18,
+      "label": "sheep",
+      "zh": "羊"
+    },
+    {
+      "id": 19,
+      "label": "cow",
+      "zh": "牛"
+    },
+    {
+      "id": 20,
+      "label": "elephant",
+      "zh": "大象"
+    },
+    {
+      "id": 21,
+      "label": "bear",
+      "zh": "熊"
+    },
+    {
+      "id": 22,
+      "label": "zebra",
+      "zh": "斑马"
+    },
+    {
+      "id": 23,
+      "label": "giraffe",
+      "zh": "长颈鹿"
+    },
+    {
+      "id": 24,
+      "label": "backpack",
+      "zh": "背包"
+    },
+    {
+      "id": 25,
+      "label": "umbrella",
+      "zh": "雨伞"
+    },
+    {
+      "id": 26,
+      "label": "handbag",
+      "zh": "手提包"
+    },
+    {
+      "id": 27,
+      "label": "tie",
+      "zh": "领带"
+    },
+    {
+      "id": 28,
+      "label": "suitcase",
+      "zh": "行李箱"
+    },
+    {
+      "id": 29,
+      "label": "frisbee",
+      "zh": "飞盘"
+    },
+    {
+      "id": 30,
+      "label": "skis",
+      "zh": "滑雪板"
+    },
+    {
+      "id": 31,
+      "label": "snowboard",
+      "zh": "单板滑雪板"
+    },
+    {
+      "id": 32,
+      "label": "sports_ball",
+      "zh": "球"
+    },
+    {
+      "id": 33,
+      "label": "kite",
+      "zh": "风筝"
+    },
+    {
+      "id": 34,
+      "label": "baseball_bat",
+      "zh": "棒球棒"
+    },
+    {
+      "id": 35,
+      "label": "baseball_glove",
+      "zh": "棒球手套"
+    },
+    {
+      "id": 36,
+      "label": "skateboard",
+      "zh": "滑板"
+    },
+    {
+      "id": 37,
+      "label": "surfboard",
+      "zh": "冲浪板"
+    },
+    {
+      "id": 38,
+      "label": "tennis_racket",
+      "zh": "网球拍"
+    },
+    {
+      "id": 39,
+      "label": "bottle",
+      "zh": "瓶子"
+    },
+    {
+      "id": 40,
+      "label": "wine_glass",
+      "zh": "红酒杯"
+    },
+    {
+      "id": 41,
+      "label": "cup",
+      "zh": "杯子"
+    },
+    {
+      "id": 42,
+      "label": "fork",
+      "zh": "叉子"
+    },
+    {
+      "id": 43,
+      "label": "knife",
+      "zh": "刀"
+    },
+    {
+      "id": 44,
+      "label": "spoon",
+      "zh": "勺子"
+    },
+    {
+      "id": 45,
+      "label": "bowl",
+      "zh": "碗"
+    },
+    {
+      "id": 46,
+      "label": "banana",
+      "zh": "香蕉"
+    },
+    {
+      "id": 47,
+      "label": "apple",
+      "zh": "苹果"
+    },
+    {
+      "id": 48,
+      "label": "sandwich",
+      "zh": "三明治"
+    },
+    {
+      "id": 49,
+      "label": "orange",
+      "zh": "橙子"
+    },
+    {
+      "id": 50,
+      "label": "broccoli",
+      "zh": "西兰花"
+    },
+    {
+      "id": 51,
+      "label": "carrot",
+      "zh": "胡萝卜"
+    },
+    {
+      "id": 52,
+      "label": "hot_dog",
+      "zh": "热狗"
+    },
+    {
+      "id": 53,
+      "label": "pizza",
+      "zh": "披萨"
+    },
+    {
+      "id": 54,
+      "label": "donut",
+      "zh": "甜甜圈"
+    },
+    {
+      "id": 55,
+      "label": "cake",
+      "zh": "蛋糕"
+    },
+    {
+      "id": 56,
+      "label": "chair",
+      "zh": "椅子"
+    },
+    {
+      "id": 57,
+      "label": "couch",
+      "zh": "沙发"
+    },
+    {
+      "id": 58,
+      "label": "potted_plant",
+      "zh": "盆栽"
+    },
+    {
+      "id": 59,
+      "label": "bed",
+      "zh": "床"
+    },
+    {
+      "id": 60,
+      "label": "dining_table",
+      "zh": "餐桌"
+    },
+    {
+      "id": 61,
+      "label": "toilet",
+      "zh": "马桶"
+    },
+    {
+      "id": 62,
+      "label": "tv",
+      "zh": "电视"
+    },
+    {
+      "id": 63,
+      "label": "laptop",
+      "zh": "笔记本电脑"
+    },
+    {
+      "id": 64,
+      "label": "mouse",
+      "zh": "鼠标"
+    },
+    {
+      "id": 65,
+      "label": "remote",
+      "zh": "遥控器"
+    },
+    {
+      "id": 66,
+      "label": "keyboard",
+      "zh": "键盘"
+    },
+    {
+      "id": 67,
+      "label": "cell_phone",
+      "zh": "手机"
+    },
+    {
+      "id": 68,
+      "label": "microwave",
+      "zh": "微波炉"
+    },
+    {
+      "id": 69,
+      "label": "oven",
+      "zh": "烤箱"
+    },
+    {
+      "id": 70,
+      "label": "toaster",
+      "zh": "烤面包机"
+    },
+    {
+      "id": 71,
+      "label": "sink",
+      "zh": "水槽"
+    },
+    {
+      "id": 72,
+      "label": "refrigerator",
+      "zh": "冰箱"
+    },
+    {
+      "id": 73,
+      "label": "book",
+      "zh": "书"
+    },
+    {
+      "id": 74,
+      "label": "clock",
+      "zh": "时钟"
+    },
+    {
+      "id": 75,
+      "label": "vase",
+      "zh": "花瓶"
+    },
+    {
+      "id": 76,
+      "label": "scissors",
+      "zh": "剪刀"
+    },
+    {
+      "id": 77,
+      "label": "teddy_bear",
+      "zh": "泰迪熊"
+    },
+    {
+      "id": 78,
+      "label": "hair_drier",
+      "zh": "吹风机"
+    },
+    {
+      "id": 79,
+      "label": "toothbrush",
+      "zh": "牙刷"
+    }
+  ]
+}

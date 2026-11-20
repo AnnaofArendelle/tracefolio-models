@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "repository": "AnnaofArendelle/tracefolio-models",
+  "tag": "model-weights-2c9c8cbd5af3e5bd",
+  "filename": "tracefolio-model-weights-2c9c8cbd5af3e5bd.tar.gz",
+  "sha256": "4685f9e993eb5dd65b102445528dcf2035fcd4d47416ff735d6abf6b774c478d",
+  "bytes": 504402140,
+  "url": "https://github.com/AnnaofArendelle/tracefolio-models/releases/download/model-weights-2c9c8cbd5af3e5bd/tracefolio-model-weights-2c9c8cbd5af3e5bd.tar.gz",
+  "total_model_bytes": 597871683,
+  "models_manifest_sha256": "d9316500961d871f3e60697bfb45609efdd6d14bca000e75e7f26349f8312bdd"
+}

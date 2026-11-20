@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "profile": "description.lfm25-450m",
+  "prompt": "简要概括图片的主要主体和场景，只输出一句简短的中文描述，不列举细节。",
+  "image_max_side": 384,
+  "context_tokens": 4096,
+  "output_tokens": 180,
+  "threads": 2,
+  "seed": 42
+}

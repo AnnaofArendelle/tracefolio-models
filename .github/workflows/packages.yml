@@ -1,0 +1,98 @@
+name: Verified model packages
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['workers/**', 'scripts/**', 'packaging/**', 'tests/**', 'VERSION', '.github/workflows/packages.yml']
+permissions:
+  contents: write
+concurrency:
+  group: model-pack-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  draft:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create unverified transfer draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "pack-ci-${GITHUB_SHA}-${GITHUB_RUN_ID}" --target "$GITHUB_SHA" --draft --title "Model package candidate ${GITHUB_SHA:0:12}" --notes "Unpublished inputs and evidence; both native targets must pass."
+  native:
+    needs: draft
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    container: ubuntu:22.04
+    timeout-minutes: 150
+    steps:
+      - run: apt-get update && apt-get install -y ca-certificates git curl gh build-essential cmake pkg-config nasm xz-utils zstd ffmpeg sudo
+      - uses: actions/checkout@v4
+      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: 0.12.5
+          enable-cache: true
+      - run: uv python install 3.12.13
+      - name: Restore our fixed model copy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          lock=json.load(open('packaging/locks/model-assets.json'))
+          subprocess.run(['gh','release','download',lock['tag'],'--repo',lock['repository'],'--pattern',lock['filename'],'--dir','build/inputs'],check=True)
+          PY
+          uv run --no-project --python 3.12.13 python scripts/restore_models.py
+      - name: Check source and worker syntax
+        run: |
+          cd workers
+          uv sync --frozen
+          uv run --frozen ruff check src tests ../scripts
+          uv run --frozen ruff format --check src tests ../scripts
+      - name: Build and qualify native package
+        env:
+          TRACEFOLIO_MODEL_PACK_VERSION: '0.1.2-${{ github.sha }}'
+        run: bash scripts/build_pack.sh
+      - name: Transfer exact tested package and receipts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tar -czf "models-linux-${{ matrix.arch }}.tar.gz" -C dist .
+          gh release upload "pack-ci-${GITHUB_SHA}-${GITHUB_RUN_ID}" "models-linux-${{ matrix.arch }}.tar.gz"
+      - name: Preserve failure evidence
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/reports
+          tar -czf "models-failure-linux-${{ matrix.arch }}.tar.gz" -C build/reports .
+          gh release upload "pack-ci-${GITHUB_SHA}-${GITHUB_RUN_ID}" "models-failure-linux-${{ matrix.arch }}.tar.gz"
+  publish:
+    needs: native
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify both tested packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "pack-ci-${GITHUB_SHA}-${GITHUB_RUN_ID}" --pattern 'models-linux-*.tar.gz' --dir build/transfer
+          mkdir -p dist
+          for arch in amd64 arm64; do
+            mkdir -p "build/$arch"
+            tar -xzf "build/transfer/models-linux-$arch.tar.gz" -C "build/$arch"
+            (cd "build/$arch" && sha256sum --check SHA256SUMS)
+            cp build/$arch/tracefolio-models-* dist/
+          done
+          (cd dist && sha256sum tracefolio-models-* > SHA256SUMS)
+          gh release create "models-${GITHUB_SHA:0:12}" dist/* --target "$GITHUB_SHA" --latest --title "Tracefolio models ${GITHUB_SHA:0:12}" --notes-file README.md

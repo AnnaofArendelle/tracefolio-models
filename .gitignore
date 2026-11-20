@@ -1,0 +1,7 @@
+/build/
+/dist/
+/workers/.venv/
+**/__pycache__/
+*.pyc
+.env
+/assets/

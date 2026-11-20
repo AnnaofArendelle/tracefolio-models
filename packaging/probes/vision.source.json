@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "id": "portrait",
+  "path": "samples/vision-v1/portrait.jpg",
+  "title": "File:Commander Eileen Collins - GPN-2000-001177.jpg",
+  "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Commander_Eileen_Collins_-_GPN-2000-001177.jpg/960px-Commander_Eileen_Collins_-_GPN-2000-001177.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Commander_Eileen_Collins_-_GPN-2000-001177.jpg",
+  "license": "Public domain",
+  "artist_html": "<bdi><a href=\"https://www.wikidata.org/wiki/Q117456812\" class=\"extiw\" title=\"d:Q117456812\"><span title=\"American photographer\">Robert Markowitz</span></a></bdi>",
+  "sha256": "86ff4d14156df3fa52e8fc101a11c1efa110bbcac79955533c64aeb7cc87e901",
+  "bytes": 265460,
+  "bundled_path": "vision.jpg",
+  "use": "detector/pose readiness only, never archive person identity or infer identity from photo",
+  "unchanged_download_bytes": true
+}

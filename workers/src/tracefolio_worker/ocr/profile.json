@@ -1,0 +1,25 @@
+{
+  "schema": 2,
+  "detector_resize": "bounded-area-linear-exact-v1",
+  "parameters": {
+    "Global.log_level": "error",
+    "Global.use_preprocess_img": false,
+    "Global.use_vertical_padding": false,
+    "EngineConfig.onnxruntime.intra_op_num_threads": 1,
+    "EngineConfig.onnxruntime.inter_op_num_threads": 1,
+    "EngineConfig.onnxruntime.enable_cpu_mem_arena": false,
+    "Rec.rec_batch_num": 1,
+    "Cls.cls_batch_num": 1,
+    "Det.model_type": "TINY",
+    "Rec.model_type": "TINY",
+    "Det.ocr_version": "PPOCRV6",
+    "Rec.ocr_version": "PPOCRV6"
+  },
+  "input_limits": {
+    "source_pixels": 16000000,
+    "source_max_side": 16384,
+    "detector_pixels": 4000000,
+    "detector_min_side": 736,
+    "detector_stride": 32
+  }
+}

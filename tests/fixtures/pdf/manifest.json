@@ -1,0 +1,80 @@
+{
+  "frozen_before_extraction": true,
+  "rows": [
+    {
+      "id": "mixed",
+      "path": "mixed.pdf",
+      "sha256": "64936ba1a9da75cf5ddac1f1a506cdfdf62f4a63eac961f9f0f4fe479a218a57",
+      "expected_status": "ok",
+      "visible_anchors": [
+        "张雨桐",
+        "QH-2026-017",
+        "13800138000"
+      ],
+      "requires_image_ocr": true,
+      "native_not_visual": false
+    },
+    {
+      "id": "stale",
+      "path": "stale.pdf",
+      "sha256": "e39b0ca87abd174943d0b835f89bc27dde8b5b3303a3ab44e91bf45bfd49462b",
+      "expected_status": "ok",
+      "visible_anchors": [
+        "张雨桐",
+        "QH-2026-017",
+        "13800138000"
+      ],
+      "requires_image_ocr": true,
+      "native_not_visual": true
+    },
+    {
+      "id": "garbled",
+      "path": "garbled.pdf",
+      "sha256": "9e38a9ceeec0e63f4bf368186b11aefc44f0588b8540185de9def1fb3bbb3eda",
+      "expected_status": "ok",
+      "visible_anchors": [
+        "张雨桐",
+        "QH-2026-017",
+        "13800138000"
+      ],
+      "requires_image_ocr": true,
+      "native_not_visual": true
+    },
+    {
+      "id": "rotated-crop",
+      "path": "rotated-crop.pdf",
+      "sha256": "2ae201d0d0fcf705c7e543c0ba01b19ea3f2069a56bb8dfaf508ca1feb6b0b58",
+      "expected_status": "ok",
+      "visible_anchors": [
+        "张雨桐",
+        "QH-2026-017",
+        "13800138000"
+      ],
+      "requires_image_ocr": true,
+      "native_not_visual": false
+    },
+    {
+      "id": "locked",
+      "path": "locked.pdf",
+      "sha256": "5f79aa52160d5f179b325c838c0f4457e52807099d75597348abcdcb933e11ab",
+      "expected_status": "password_required",
+      "visible_anchors": [
+        "张雨桐",
+        "QH-2026-017",
+        "13800138000"
+      ],
+      "requires_image_ocr": false,
+      "native_not_visual": false
+    },
+    {
+      "id": "broken",
+      "path": "broken.pdf",
+      "sha256": "1f52f5bce484d803548a432da6328eee45176aa06ed53a90f33bf1da05437c44",
+      "expected_status": "invalid_pdf"
+    }
+  ],
+  "scan_sha256": "393bd0af5744cf1984ba3f48c48b68a06ee7c006f1eaca1320cc93eae0f3a47e",
+  "policy": "native and rendered OCR retained as separate candidates; nonempty layer never proves visual completeness; image object coverage triggers OCR; no stale text auto-replacement",
+  "scale": 1.5,
+  "limits": "self-created single-page documents; no arbitrary CID/CMap corruption or real confidential documents; locked file no supplied password"
+}

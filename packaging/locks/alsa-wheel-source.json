@@ -1,0 +1,10 @@
+{
+  "component": "alsa-wheel",
+  "version": "1.2.12",
+  "url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.12.tar.bz2",
+  "filename": "alsa-lib-1.2.12.tar.bz2",
+  "sha256": "4868cd908627279da5a634f468701625be8cc251d84262c7e5b6a218391ad0d2",
+  "bytes": 1108712,
+  "license": "LGPL-2.1-or-later",
+  "purpose": "Corresponding source for the explicitly inventoried dynamic LGPL dependency inside the pinned production wheel; see native-components.json."
+}

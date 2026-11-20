@@ -1,0 +1,10 @@
+{
+  "component": "quadmath-opencv",
+  "version": "8.5.0-28.el8_10.alma.1",
+  "filename": "gcc-8.5.0-28.el8_10.alma.1.src.rpm",
+  "url": "https://vault.almalinux.org/8.10/BaseOS/Source/Packages/gcc-8.5.0-28.el8_10.alma.1.src.rpm",
+  "sha256": "c94dbbd2cd6d5d01a5a6822ea18f8ce34942c25a80e17b4682d547d5e652dbd0",
+  "bytes": 65715094,
+  "license": "LGPL-2.1-or-later",
+  "purpose": "Complete AlmaLinux GCC source RPM including distribution patches/build spec for OpenCV libquadmath; library debuglink names the exact distribution release."
+}

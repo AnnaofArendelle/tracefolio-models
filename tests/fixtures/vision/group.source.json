@@ -1,0 +1,14 @@
+{
+  "id": "group",
+  "path": "samples/vision-v1/group.jpg",
+  "title": "File:Sts-114-crew.jpg",
+  "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Sts-114-crew.jpg/960px-Sts-114-crew.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "page": "https://commons.wikimedia.org/wiki/File:Sts-114-crew.jpg",
+  "license": "Public domain",
+  "artist_html": "NASA/KSC",
+  "sha256": "7fae087237d8d54ed85137bc2ca14de80787f111bcfb2efa1ec99dbff1a00a29",
+  "bytes": 245321,
+  "fixture": "group.png",
+  "fixture_sha256": "d5a176c2676379d335811db3a689dc3e554599eb8e7886b5647966a67e1708c8",
+  "derivation": "Original downloaded JPEG decoded to RGB and saved as PNG at unchanged 960x704 dimensions by the retained extreme_vision_prepare.py; no enhancement. Names and uniforms are source attribution, not model identity."
+}

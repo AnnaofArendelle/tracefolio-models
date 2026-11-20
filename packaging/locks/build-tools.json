@@ -1,0 +1,7 @@
+{
+  "nasm": {
+    "version": "2.15.05-1",
+    "source": "Ubuntu jammy/universe amd64 via apt-get download",
+    "sha256": "3e2725cfcb308642e1de289e749ad3aad90266d1d6db7f9261ed45ce8f3d734d"
+  }
+}

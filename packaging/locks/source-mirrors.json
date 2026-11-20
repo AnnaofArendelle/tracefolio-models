@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "filename": "onnxruntime-1.28.2.tar.gz",
+      "sha256": "a5003dfd85d66a4d45bd2757c7f813f9e835142e9a936ac04877c788d6afe938",
+      "bytes": 278677335,
+      "upstream_url": "https://codeload.github.com/microsoft/onnxruntime/tar.gz/refs/tags/v1.28.2",
+      "url": "https://github.com/AnnaofArendelle/tracefolio-models/releases/download/source-inputs-v1/onnxruntime-1.28.2.tar.gz"
+    }
+  ]
+}

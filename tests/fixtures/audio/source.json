@@ -1,0 +1,38 @@
+{
+  "source": {
+    "dataset": "carlot/AIShell",
+    "source_revision": "692ef58020d79b21f54eb25b15a4813d4f9650d7",
+    "split": "test",
+    "row_index": 0,
+    "source_url": "https://huggingface.co/datasets/carlot/AIShell/tree/692ef58020d79b21f54eb25b15a4813d4f9650d7",
+    "license": "Apache-2.0 (dataset card); public AISHELL-1 corpus",
+    "reference": "甚至出现交易几乎停滞的情况",
+    "sha256": "46dbc998c9d1d48111267c40741dd3200f2e5bcf4075f8c4c97f4451160dce50",
+    "use": "Fixed bounded actual ASR/VAD preflight; not a quality benchmark"
+  },
+  "rows": [
+    {
+      "path": "clean.mp3",
+      "sha256": "b4ece4200ef8d66e4a7b44847e59007c12f1d7d5988f6ebab506b8116e90c0ff",
+      "bytes": 17361,
+      "derived_from": "../../../packaging/probes/asr.wav",
+      "parent_sha256": "46dbc998c9d1d48111267c40741dd3200f2e5bcf4075f8c4c97f4451160dce50",
+      "transform": "FFmpeg MP3 at 32 kbps, preserves encoder padding/timestamps",
+      "reference": "甚至出现交易几乎停滞的情况",
+      "source_id": "aishell-test-0000-32k"
+    },
+    {
+      "path": "clean.amr",
+      "sha256": "cb22bce370eba051c181823f5e486c2931bd6671c5a508aaf7a2864d0d07af79",
+      "bytes": 6758,
+      "derived_from": "../../../packaging/probes/asr.wav",
+      "parent_sha256": "46dbc998c9d1d48111267c40741dd3200f2e5bcf4075f8c4c97f4451160dce50",
+      "transform": "FFmpeg 8 kHz mono resampling; libopencore-amrnb mode 7 / 12.2 kbps, final 160-sample frame zero-padded",
+      "reference": "甚至出现交易几乎停滞的情况",
+      "source_id": "aishell-test-0000-12k2"
+    }
+  ],
+  "license": "Apache-2.0, declared in pinned Hugging Face dataset card",
+  "attribution": "AISHELL-1 Mandarin speech corpus; derivative compression fixtures preserved from Tracefolio research",
+  "use": "Committed small fixed production integration fixtures, not independent quality samples"
+}

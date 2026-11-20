@@ -1,0 +1,9 @@
+{
+  "component": "llama.cpp",
+  "revision": "7d7f0287530bc8981690f361d8c1627dbae1c99a",
+  "url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/7d7f0287530bc8981690f361d8c1627dbae1c99a",
+  "filename": "llama-7d7f0287530bc8981690f361d8c1627dbae1c99a.tar.gz",
+  "sha256": "2f15b173875f53cb2a3d099b65875a24824859b0b9a7ede276d58ec2881ae085",
+  "bytes": 39142448,
+  "license": "MIT"
+}

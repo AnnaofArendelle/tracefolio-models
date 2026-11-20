@@ -1,0 +1,88 @@
+Tracefolio
+Copyright 2026 Tracefolio contributors
+
+Original Tracefolio source code is licensed under AGPL-3.0-only; see LICENSE.
+Third-party source, libraries, model weights, dictionaries and research samples
+retain their own licenses. Research evidence is not a grant to redistribute
+every experimental asset.
+
+Pinned implementation model assets (final distribution acceptance pending):
+- PP-OCRv6 tiny: PaddlePaddle / Baidu, official ONNX exports, Apache-2.0.
+  Tracefolio extracts the recognition dictionary from the official inference
+  configuration without changing its ordering; see the derivation record.
+- PaddleOCR direction classifier: Baidu/PaddleOCR rights holders, converted
+  and packaged by RapidAI, Apache-2.0. See RapidOCR-model-notice.md.
+- SenseVoice: Alibaba Group, ONNX INT8 conversion by sherpa-onnx contributors.
+  Weights use the custom FunASR Model Open Source License Agreement v1.1,
+  NOT the license of the inference engine. Full text is retained separately.
+- Silero VAD: Silero Team, MIT; official v6.2.3 ONNX from the pinned Silero repository commit.
+- YOLOX-Nano: Megvii-BaseDetection / YOLOX contributors, official ONNX release.
+- RTMPose-t: OpenMMLab / MMPose contributors, official ONNX SDK archive.
+  Official source/declaration and exact weight provenance for these two
+  Apache-2.0 projects is recorded in packaging/manifests/models.json.
+
+See packaging/licenses/ and packaging/manifests/models.json. This is an
+implementation-stage notice. The final distribution must additionally include
+the generated dependency notices, SBOM and corresponding-source materials for
+its actual contents before release.
+
+Chinese search normalization:
+- longbridgeapp/opencc v0.3.13 and its embedded OpenCC dictionaries: Apache-2.0.
+  The source-mapping traversal in internal/search/normalize/normalize.go adapts
+  the dictionary-chain algorithm from that version's opencc.go, adding immutable
+  source ranges, cancellation and input bounds. See OpenCC-Apache-2.0.txt.
+- golang.org/x/text: Go Authors, BSD-3-Clause (final dependency notice generated
+  with the actual distribution).
+
+Native speech runtime:
+- sherpa-onnx / sherpa-onnx-core 2.0.1: Apache-2.0. The core wheel also owns
+  a distinct ONNX Runtime 1.28.2 shared library, Copyright Microsoft Corporation,
+  MIT. This is separate from the Python ONNX Runtime 1.23.2 distribution.
+  Keep the 1.28.2 MIT license and third-party notices; acquisition and exact
+  shared-library hashes are in packaging/manifests/native-components.json.
+
+Native image and audio wheel dependencies:
+- OpenCV's FFmpeg 8.1.1 shared libraries: LGPL-2.1-or-later. This is a
+  separate build from Tracefolio's FFmpeg 9.0.2 executable. Retain upstream
+  OpenCV notices and the exact corresponding FFmpeg source/build recipe.
+- Shapely's GEOS 3.14.1 and sherpa-onnx's ALSA 1.2.12 shared libraries:
+  LGPL-2.1-or-later, with corresponding source archives.
+- NumPy/OpenCV libquadmath: LGPL-2.1-or-later. Exact CentOS GCC
+  4.8.5-44.el7 and AlmaLinux GCC 8.5.0-28.el8_10.alma.1 source RPMs retain
+  upstream source, distribution patches and build specifications.
+  Libgfortran is separate GPL-3.0 with the GCC Runtime Library Exception;
+  NumPy uses the exact CentOS GCC-libraries 8.3.1-2.1.1.el7 source RPM,
+  while OpenCV shares the AlmaLinux GCC 8.5.0 source RPM.
+- Pillow includes software developed by the FreeType Project
+  (https://freetype.org), used under the FreeType License (FTL).
+See native-components.json and the release source/third-party-license
+archives. Extracted shared libraries remain separate files; Tracefolio's
+AGPL source and pinned build scripts are provided for rebuilding with
+compatible modified dependencies. No third-party license is replaced by
+Tracefolio's first-party license.
+
+Pinyin candidate dictionary:
+- mozillazg/go-pinyin v0.21.0, Copyright 2016 mozillazg, MIT.
+  See packaging/licenses/go-pinyin-MIT.txt. Multiple readings are retrieval
+  candidates, not contextual pronunciation or identity assertions.
+
+Visual readiness and regression images:
+- NASA / Robert Markowitz: Commander Eileen Collins, GPN-2000-001177;
+  public domain, unchanged Commons thumbnail in packaging/probes/vision.jpg.
+  Attribution and checksum: packaging/probes/vision.source.json.
+- NASA/KSC: STS-114 crew photograph; public domain. The unchanged-size RGB
+  PNG regression derivative is tests/fixtures/vision/group.png. Source,
+  original/derivative checksums and conversion: group.source.json.
+These source titles are attribution only; Tracefolio does not infer names
+or personal identity from detection or pose results.
+
+Local image description:
+- Liquid AI LFM2.5-VL-450M, official Q4_K_M language and Q8_0 vision GGUF
+  weights, redistributed unchanged under LFM Open License v1.0. This is a
+  separate conditional model license, including its commercial revenue
+  threshold, not Apache-2.0 or Tracefolio's AGPL. See LFM-Open-License-1.0.txt.
+- llama.cpp, Copyright (c) 2023-2026 The ggml authors, MIT; pinned source
+  revision 7d7f0287530bc8981690f361d8c1627dbae1c99a. Tracefolio's CPU build
+  disables native CPU extensions and GPU requirements. Exact source and
+  build script accompany the release; vendor notices are retained in
+  llama.cpp-third-party.txt. The runtime is invoked as a separate process.

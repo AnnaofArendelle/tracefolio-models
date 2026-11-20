@@ -1,0 +1,316 @@
+{
+  "schema": 1,
+  "target": "linux-arm64",
+  "components": [
+    {
+      "id": "sherpa-bundled-onnxruntime",
+      "name": "ONNX Runtime (sherpa-onnx-core shared dependency)",
+      "version": "1.28.2",
+      "license": "MIT",
+      "runtime_path": "python/lib/python3.12/site-packages/sherpa_onnx/lib/libonnxruntime.so",
+      "sha256": "cfc800d4438f15e8d9017521326776ca7117d8783cb847ccccc2fc61ac4d540f",
+      "bytes": 34606912,
+      "wheel_distribution": "sherpa-onnx-core",
+      "wheel_version": "2.0.1",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/73/d0/399776c4b6fa0a618d23cf711d580607d9890f7838352dacb36a9246f2b7/sherpa_onnx_core-2.0.1-py3-none-manylinux2014_aarch64.whl",
+      "wheel_sha256": "4a855a5c89c89885111e4e9c570e5da1aed63373c031b757d8046792d95fe8fe",
+      "upstream_source_url": "https://github.com/microsoft/onnxruntime/tree/v1.28.2",
+      "licenses": [
+        {
+          "path": "licenses/sherpa-ORT-1.28.2-MIT.txt",
+          "repository_path": "packaging/licenses/sherpa-ORT-1.28.2-MIT.txt",
+          "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/LICENSE",
+          "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+        },
+        {
+          "path": "licenses/sherpa-ORT-1.28.2-ThirdPartyNotices.txt",
+          "repository_path": "packaging/licenses/sherpa-ORT-1.28.2-ThirdPartyNotices.txt",
+          "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/ThirdPartyNotices.txt",
+          "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2"
+        }
+      ],
+      "source_lock": "onnxruntime-sherpa-source.json",
+      "elf_machine": 183,
+      "upstream_binary_url": "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.28.2/onnxruntime-linux-aarch64-glibc2_17-Release-1.28.2.zip",
+      "upstream_binary_sha256": "28083273643f40fa6477ef9d53986fe216304710c4b1c743b217a4effd016339",
+      "provenance_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/v2.0.1/cmake/onnxruntime-linux-aarch64.cmake",
+      "provenance_repository_path": "research/format-evidence/sherpa-onnx-2.0.1-linux-aarch64.cmake",
+      "provenance_sha256": "4d3f67cab917d1c4bd5ce779b9e4adf2dceb622aae7bcc22a0fb7fc273e7e198",
+      "upstream_build_recipe_url": "https://raw.githubusercontent.com/csukuangfj/onnxruntime-libs/v1.28.2/.github/workflows/aarch64-shared-217.yaml",
+      "upstream_build_recipe_repository_path": "packaging/recipes/aarch64-shared-217.yaml",
+      "upstream_build_recipe_sha256": "225c247736fdb7ea326a0629c4d49f477a8d85a10dc070cecd95fbda276053c0"
+    },
+    {
+      "id": "geos-wheel-libgeos-bf1df61c.so.3.14.1",
+      "name": "Geometry Engine Open Source (Shapely shared dependency) / libgeos-d1e818bb.so.3.14.1",
+      "version": "3.14.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/shapely.libs/libgeos-bf1df61c.so.3.14.1",
+      "sha256": "7e7306267b0cd693c3b40770dcf42df53a4f0ee5041011e47f0d9cf9a0be9344",
+      "bytes": 5090969,
+      "wheel_distribution": "shapely",
+      "wheel_version": "2.2.0",
+      "upstream_source_url": "https://download.osgeo.org/geos/geos-3.14.1.tar.bz2",
+      "source_lock": "geos-wheel-source.json",
+      "licenses": [
+        {
+          "path": "licenses/geos-wheel-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/geos-wheel-LGPL-2.1.txt",
+          "source_url": "https://download.osgeo.org/geos/geos-3.14.1.tar.bz2",
+          "sha256": "81d9aaf9ab7e3e6184568a70f27ee3e138d8d1e543b46dad5af88cff61cf1b36"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/ae/34/b90723043091161f636fde302e850583dcebd610e798f9edd6e3245f5a2a/shapely-2.2.0-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "a9a380624cdd7a7e661bf15a4d1625082766f07ccd2540cb0a9e0df1ad4f6c11",
+      "elf_machine": 183
+    },
+    {
+      "id": "geos-wheel-libgeos_c-f518db6b.so.1.20.5",
+      "name": "Geometry Engine Open Source (Shapely shared dependency) / libgeos_c-ac38a227.so.1.20.5",
+      "version": "3.14.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/shapely.libs/libgeos_c-f518db6b.so.1.20.5",
+      "sha256": "9ef62ec5e9134b0d1abb1d97e5f6bd4ce0a8f9c9e422cfdb89b3063f8df931f2",
+      "bytes": 833433,
+      "wheel_distribution": "shapely",
+      "wheel_version": "2.2.0",
+      "upstream_source_url": "https://download.osgeo.org/geos/geos-3.14.1.tar.bz2",
+      "source_lock": "geos-wheel-source.json",
+      "licenses": [
+        {
+          "path": "licenses/geos-wheel-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/geos-wheel-LGPL-2.1.txt",
+          "source_url": "https://download.osgeo.org/geos/geos-3.14.1.tar.bz2",
+          "sha256": "81d9aaf9ab7e3e6184568a70f27ee3e138d8d1e543b46dad5af88cff61cf1b36"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/ae/34/b90723043091161f636fde302e850583dcebd610e798f9edd6e3245f5a2a/shapely-2.2.0-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "a9a380624cdd7a7e661bf15a4d1625082766f07ccd2540cb0a9e0df1ad4f6c11",
+      "elf_machine": 183
+    },
+    {
+      "id": "alsa-wheel-libasound-eeac1cd9.so.2.0.0",
+      "name": "ALSA library (sherpa-onnx shared dependency) / libasound-fb5348bf.so.2.0.0",
+      "version": "1.2.12",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/sherpa_onnx.libs/libasound-eeac1cd9.so.2.0.0",
+      "sha256": "719d17f13b24f7efb4a8ad20e21705ed6da001b57a872d18c53eac430316e9e0",
+      "bytes": 5763049,
+      "wheel_distribution": "sherpa-onnx",
+      "wheel_version": "2.0.1",
+      "upstream_source_url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.12.tar.bz2",
+      "source_lock": "alsa-wheel-source.json",
+      "licenses": [
+        {
+          "path": "licenses/alsa-wheel-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/alsa-wheel-LGPL-2.1.txt",
+          "source_url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.12.tar.bz2",
+          "sha256": "32434afcc8666ba060e111d715bfdb6c2d5dd8a35fa4d3ab8ad67d8f850d2f2b"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/41/e0/0f5bde55a8687c82707097e91a66ef83e44914334fab313e826c581b9e33/sherpa_onnx-2.0.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+      "wheel_sha256": "929f926f9ae1b44263392b4bcfee3fa1e4c7643ee460d93c860e2113260722e9",
+      "elf_machine": 183
+    },
+    {
+      "id": "ffmpeg-opencv-libavcodec-72930352.so.62.28.101",
+      "name": "FFmpeg (OpenCV shared dependency) / libavcodec-c4204469.so.62.28.101",
+      "version": "8.1.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/opencv_python_headless.libs/libavcodec-72930352.so.62.28.101",
+      "sha256": "6dd6da6d2ebc28a8810d2c4b7cabdc33161bf4181056d556ed23aba2e7487056",
+      "bytes": 15346593,
+      "wheel_distribution": "opencv-python-headless",
+      "wheel_version": "5.0.0.93",
+      "source_lock": "ffmpeg-opencv-source.json",
+      "upstream_source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+      "licenses": [
+        {
+          "path": "licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+          "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "840bd717c21e5c11cadadc022a823315ea417f961213d06b4df010e019eb16f4",
+      "elf_machine": 183,
+      "provenance": "ARM member from exact pinned OpenCV manylinux_2_28_aarch64 wheel; bundled FFmpeg version 8.1.1 and existing LGPL source lock retained.",
+      "upstream_build_recipe_url": "https://raw.githubusercontent.com/opencv/opencv-python/b83046cda41133f1bf2e73e99dba16a1248f103a/docker/manylinux_2_28/Dockerfile_aarch64",
+      "upstream_build_recipe_repository_path": "packaging/recipes/Dockerfile_aarch64",
+      "upstream_build_recipe_sha256": "03b612f3e2ac0ba32f4d85d2fd35d8327ba5933a2e91e053c65cd0a1ef068fd1"
+    },
+    {
+      "id": "ffmpeg-opencv-libavformat-3d8eec66.so.62.12.101",
+      "name": "FFmpeg (OpenCV shared dependency) / libavformat-4762a711.so.62.12.101",
+      "version": "8.1.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/opencv_python_headless.libs/libavformat-3d8eec66.so.62.12.101",
+      "sha256": "7c5ebf9c374f1e86f6a6da854ce982f4819f7f276edd537cdcf38d081eb6dec5",
+      "bytes": 3094041,
+      "wheel_distribution": "opencv-python-headless",
+      "wheel_version": "5.0.0.93",
+      "source_lock": "ffmpeg-opencv-source.json",
+      "upstream_source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+      "licenses": [
+        {
+          "path": "licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+          "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "840bd717c21e5c11cadadc022a823315ea417f961213d06b4df010e019eb16f4",
+      "elf_machine": 183,
+      "provenance": "ARM member from exact pinned OpenCV manylinux_2_28_aarch64 wheel; bundled FFmpeg version 8.1.1 and existing LGPL source lock retained.",
+      "upstream_build_recipe_url": "https://raw.githubusercontent.com/opencv/opencv-python/b83046cda41133f1bf2e73e99dba16a1248f103a/docker/manylinux_2_28/Dockerfile_aarch64",
+      "upstream_build_recipe_repository_path": "packaging/recipes/Dockerfile_aarch64",
+      "upstream_build_recipe_sha256": "03b612f3e2ac0ba32f4d85d2fd35d8327ba5933a2e91e053c65cd0a1ef068fd1"
+    },
+    {
+      "id": "ffmpeg-opencv-libavutil-8f5e7298.so.60.26.101",
+      "name": "FFmpeg (OpenCV shared dependency) / libavutil-befbbc48.so.60.26.101",
+      "version": "8.1.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/opencv_python_headless.libs/libavutil-8f5e7298.so.60.26.101",
+      "sha256": "eaabd9641a06b7b35fea38ee8bbfe07cf81f6324f6d20afed89fa3b7fe631735",
+      "bytes": 1127745,
+      "wheel_distribution": "opencv-python-headless",
+      "wheel_version": "5.0.0.93",
+      "source_lock": "ffmpeg-opencv-source.json",
+      "upstream_source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+      "licenses": [
+        {
+          "path": "licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+          "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "840bd717c21e5c11cadadc022a823315ea417f961213d06b4df010e019eb16f4",
+      "elf_machine": 183,
+      "provenance": "ARM member from exact pinned OpenCV manylinux_2_28_aarch64 wheel; bundled FFmpeg version 8.1.1 and existing LGPL source lock retained.",
+      "upstream_build_recipe_url": "https://raw.githubusercontent.com/opencv/opencv-python/b83046cda41133f1bf2e73e99dba16a1248f103a/docker/manylinux_2_28/Dockerfile_aarch64",
+      "upstream_build_recipe_repository_path": "packaging/recipes/Dockerfile_aarch64",
+      "upstream_build_recipe_sha256": "03b612f3e2ac0ba32f4d85d2fd35d8327ba5933a2e91e053c65cd0a1ef068fd1"
+    },
+    {
+      "id": "ffmpeg-opencv-libswresample-4e764699.so.6.3.101",
+      "name": "FFmpeg (OpenCV shared dependency) / libswresample-2dfded3b.so.6.3.101",
+      "version": "8.1.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/opencv_python_headless.libs/libswresample-4e764699.so.6.3.101",
+      "sha256": "b49ea4decddd913997d5f9a4af781d2ffdbf26d422f9e80f2d3193f0cd0f8092",
+      "bytes": 396129,
+      "wheel_distribution": "opencv-python-headless",
+      "wheel_version": "5.0.0.93",
+      "source_lock": "ffmpeg-opencv-source.json",
+      "upstream_source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+      "licenses": [
+        {
+          "path": "licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+          "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "840bd717c21e5c11cadadc022a823315ea417f961213d06b4df010e019eb16f4",
+      "elf_machine": 183,
+      "provenance": "ARM member from exact pinned OpenCV manylinux_2_28_aarch64 wheel; bundled FFmpeg version 8.1.1 and existing LGPL source lock retained.",
+      "upstream_build_recipe_url": "https://raw.githubusercontent.com/opencv/opencv-python/b83046cda41133f1bf2e73e99dba16a1248f103a/docker/manylinux_2_28/Dockerfile_aarch64",
+      "upstream_build_recipe_repository_path": "packaging/recipes/Dockerfile_aarch64",
+      "upstream_build_recipe_sha256": "03b612f3e2ac0ba32f4d85d2fd35d8327ba5933a2e91e053c65cd0a1ef068fd1"
+    },
+    {
+      "id": "ffmpeg-opencv-libswscale-9061c2fd.so.9.5.101",
+      "name": "FFmpeg (OpenCV shared dependency) / libswscale-fe215b0b.so.9.5.101",
+      "version": "8.1.1",
+      "license": "LGPL-2.1-or-later",
+      "runtime_path": "python/lib/python3.12/site-packages/opencv_python_headless.libs/libswscale-9061c2fd.so.9.5.101",
+      "sha256": "0ad2f960751357d39b1e73023c0cb7927888d1e8f0bb6c82a340b5e47e9d8346",
+      "bytes": 1509465,
+      "wheel_distribution": "opencv-python-headless",
+      "wheel_version": "5.0.0.93",
+      "source_lock": "ffmpeg-opencv-source.json",
+      "upstream_source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+      "licenses": [
+        {
+          "path": "licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "repository_path": "packaging/licenses/ffmpeg-opencv-LGPL-2.1.txt",
+          "source_url": "https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.gz",
+          "sha256": "246041b6ecf9bc32d718a62c57877c78b5eb397b6467e74ed7ae2626ab189c30"
+        }
+      ],
+      "linking": "dynamic; extracted shared libraries remain separate from first-party executable",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "840bd717c21e5c11cadadc022a823315ea417f961213d06b4df010e019eb16f4",
+      "elf_machine": 183,
+      "provenance": "ARM member from exact pinned OpenCV manylinux_2_28_aarch64 wheel; bundled FFmpeg version 8.1.1 and existing LGPL source lock retained.",
+      "upstream_build_recipe_url": "https://raw.githubusercontent.com/opencv/opencv-python/b83046cda41133f1bf2e73e99dba16a1248f103a/docker/manylinux_2_28/Dockerfile_aarch64",
+      "upstream_build_recipe_repository_path": "packaging/recipes/Dockerfile_aarch64",
+      "upstream_build_recipe_sha256": "03b612f3e2ac0ba32f4d85d2fd35d8327ba5933a2e91e053c65cd0a1ef068fd1"
+    },
+    {
+      "id": "libgfortran-numpy",
+      "name": "GNU Fortran Runtime / numpy shared dependency",
+      "version": "8.3.1-2.1.1.el7",
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1",
+      "runtime_path": "python/lib/python3.12/site-packages/numpy.libs/libgfortran-daac5196-038a5e3c.so.5.0.0",
+      "sha256": "8c13f44b44e4dd0005632ea4173f5f5014d2829d50aa12b2054034297c07f233",
+      "bytes": 1671529,
+      "wheel_distribution": "numpy",
+      "wheel_version": "2.2.6",
+      "source_lock": "libgfortran-numpy-source.json",
+      "upstream_source_url": "https://vault.centos.org/centos/7/os/Source/SPackages/gcc-libraries-8.3.1-2.1.1.el7.src.rpm",
+      "licenses": [
+        {
+          "path": "licenses/GCC-GPL-3.0-with-runtime-exception.txt",
+          "repository_path": "packaging/licenses/GCC-GPL-3.0-with-runtime-exception.txt",
+          "sha256": "05dfdad19a1415b373645752435719700251bed7d049d10565ce14a7d1cf32c3"
+        }
+      ],
+      "linking": "dynamic; GCC Runtime Library Exception retained; this ARM runtime has no libquadmath member",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/f8/35/8c80729f1ff76b3921d5c9487c7ac3de9b2a103b1cd05e905b3090513510/numpy-2.2.6-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "wheel_sha256": "f2618db89be1b4e05f7a1a847a9c1c0abd63e63a1607d892dd54668dd92faf87",
+      "elf_machine": 183,
+      "provenance_repository_path": "research/format-evidence/numpy-arm64-libgfortran-source-evidence.json",
+      "provenance_sha256": "173dd0ce6c05bf6eb96624264106185ef1a7f7a2f014e28c1e806459d469e07e",
+      "provenance": "ARM wheel text/rodata and BuildID match CentOS aarch64 original; auditwheel hash prefix daac5196 matches original SHA256."
+    },
+    {
+      "id": "libgfortran-opencv",
+      "name": "GNU Fortran Runtime / opencv-python-headless shared dependency",
+      "version": "8.5.0-28.el8_10.alma.1",
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1",
+      "runtime_path": "python/lib/python3.12/site-packages/opencv_python_headless.libs/libgfortran-e1b7dfc8.so.5.0.0",
+      "sha256": "296e40e3d92d0c4377e1f8b40a929045fee6bc5686226faf940fc824e469a7be",
+      "bytes": 1484433,
+      "wheel_distribution": "opencv-python-headless",
+      "wheel_version": "5.0.0.93",
+      "source_lock": "quadmath-opencv-source.json",
+      "upstream_source_url": "https://vault.almalinux.org/8.10/BaseOS/Source/Packages/gcc-8.5.0-28.el8_10.alma.1.src.rpm",
+      "licenses": [
+        {
+          "path": "licenses/GCC-GPL-3.0-with-runtime-exception.txt",
+          "repository_path": "packaging/licenses/GCC-GPL-3.0-with-runtime-exception.txt",
+          "sha256": "05dfdad19a1415b373645752435719700251bed7d049d10565ce14a7d1cf32c3"
+        }
+      ],
+      "linking": "dynamic; GCC Runtime Library Exception retained; this ARM runtime has no libquadmath member",
+      "wheel_source_url": "https://files.pythonhosted.org/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl",
+      "wheel_sha256": "840bd717c21e5c11cadadc022a823315ea417f961213d06b4df010e019eb16f4",
+      "elf_machine": 183,
+      "provenance": "Actual ARM gnu_debuglink: libgfortran.so.5.0.0-8.5.0-28.el8_10.alma.1.aarch64.debug; locked GCC distribution source RPM includes patches and build spec."
+    }
+  ]
+}

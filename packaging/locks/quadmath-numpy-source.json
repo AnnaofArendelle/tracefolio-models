@@ -1,0 +1,10 @@
+{
+  "component": "quadmath-numpy",
+  "version": "4.8.5-44.el7",
+  "filename": "gcc-4.8.5-44.el7.src.rpm",
+  "url": "https://vault.centos.org/centos/7/os/Source/SPackages/gcc-4.8.5-44.el7.src.rpm",
+  "sha256": "642c4085f6af9565e39583e54a9d7a5d9e6b93dd8c8e9474aec8a892d6c7aa36",
+  "bytes": 79314655,
+  "license": "LGPL-2.1-or-later",
+  "purpose": "Complete CentOS GCC source RPM including distribution patches/build spec corresponding to auditwheel-renamed NumPy libquadmath; original RPM SHA prefix, GNU build-id, text and rodata match actual runtime dependency."
+}

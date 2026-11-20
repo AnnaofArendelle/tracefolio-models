@@ -1,0 +1,9 @@
+{
+  "component": "onnxruntime-sherpa",
+  "version": "1.28.2",
+  "url": "https://codeload.github.com/microsoft/onnxruntime/tar.gz/refs/tags/v1.28.2",
+  "filename": "onnxruntime-1.28.2.tar.gz",
+  "sha256": "a5003dfd85d66a4d45bd2757c7f813f9e835142e9a936ac04877c788d6afe938",
+  "bytes": 278677335,
+  "purpose": "Corresponding upstream source for the ONNX Runtime 1.28.2 CPU shared library bundled by sherpa-onnx core 2.0.1; the fixed upstream build recipe and binary ownership are recorded in packaging/manifests/native-components.json."
+}
