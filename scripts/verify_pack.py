@@ -99,9 +99,11 @@ def probe(runtime: Path) -> dict:
 
     with pdfium.PdfDocument(ROOT / "tests/fixtures/pdf/mixed.pdf") as document:
         assert len(document) > 0
-        with document[0] as page:
-            with page.get_textpage() as textpage:
-                assert textpage.get_text_range()
+        page = document[0]
+        textpage = page.get_textpage()
+        assert textpage.get_text_range()
+        textpage.close()
+        page.close()
     for tool in ("ffmpeg", "ffprobe"):
         subprocess.run(
             [str(runtime / "media/bin" / tool), "-version"],

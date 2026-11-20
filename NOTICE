@@ -6,7 +6,7 @@ Third-party source, libraries, model weights, dictionaries and research samples
 retain their own licenses. Research evidence is not a grant to redistribute
 every experimental asset.
 
-Pinned implementation model assets (final distribution acceptance pending):
+Pinned model assets (each release includes its own acceptance receipt):
 - PP-OCRv6 tiny: PaddlePaddle / Baidu, official ONNX exports, Apache-2.0.
   Tracefolio extracts the recognition dictionary from the official inference
   configuration without changing its ordering; see the derivation record.
@@ -21,10 +21,8 @@ Pinned implementation model assets (final distribution acceptance pending):
   Official source/declaration and exact weight provenance for these two
   Apache-2.0 projects is recorded in packaging/manifests/models.json.
 
-See packaging/licenses/ and packaging/manifests/models.json. This is an
-implementation-stage notice. The final distribution must additionally include
-the generated dependency notices, SBOM and corresponding-source materials for
-its actual contents before release.
+See packaging/licenses/ and packaging/manifests/models.json. Each released package includes generated dependency
+notices, an SPDX SBOM and corresponding-source materials for its actual contents.
 
 Chinese search normalization:
 - longbridgeapp/opencc v0.3.13 and its embedded OpenCC dictionaries: Apache-2.0.
