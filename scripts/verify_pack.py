@@ -24,14 +24,10 @@ def probe(runtime: Path) -> dict:
     from tracefolio_worker.description import LocalCaption, caption_image
 
     manifest = json.loads((runtime / "models.json").read_text())
-    assets = {
-        a["role"]: Asset(runtime / a["path"], a["sha256"]) for a in manifest["assets"]
-    }
+    assets = {a["role"]: Asset(runtime / a["path"], a["sha256"]) for a in manifest["assets"]}
     result = {}
     started = time.monotonic()
-    ocr = RapidAdapter(
-        OCRModels(assets["det"], assets["rec"], assets["cls"], assets["dictionary"])
-    )
+    ocr = RapidAdapter(OCRModels(assets["det"], assets["rec"], assets["cls"], assets["dictionary"]))
     proof = ocr.preflight(ROOT / "packaging/probes/ocr.png", "TRACEFOLIO")
     chinese = ocr.extract(ROOT / "tests/fixtures/vision/meeting.png")
     assert "青禾" in "\n".join(s["text"] for s in chinese["segments"])

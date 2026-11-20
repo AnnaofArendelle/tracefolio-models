@@ -46,9 +46,7 @@ def runtime_distributions() -> list:
         key = canonicalize_name(req.name)
         dist = metadata.distribution(req.name)
         if dist.version not in req.specifier:
-            raise RuntimeError(
-                f"installed dependency violates lock constraint: {req.name}"
-            )
+            raise RuntimeError(f"installed dependency violates lock constraint: {req.name}")
         if key in selected:
             continue
         selected[key] = dist
@@ -181,11 +179,7 @@ def stage(
                 rel = source.absolute().relative_to(purelib)
             except ValueError:
                 continue  # console scripts are not the worker entry point
-            if (
-                ".." in rel.parts
-                or "__pycache__" in rel.parts
-                or source.suffix == ".pyc"
-            ):
+            if ".." in rel.parts or "__pycache__" in rel.parts or source.suffix == ".pyc":
                 continue
             # Library test suites are not imported by production adapters.
             if "tests" in rel.parts or "test" in rel.parts:
@@ -200,8 +194,7 @@ def stage(
             continue
         install(
             path,
-            Path("python/lib/python3.12/site-packages")
-            / path.relative_to(ROOT / "workers/src"),
+            Path("python/lib/python3.12/site-packages") / path.relative_to(ROOT / "workers/src"),
             copy_file=True,
         )
     for path in (ROOT / "packaging/licenses").iterdir():
@@ -239,10 +232,7 @@ def stage(
         spec["target"] = target_platform
         for asset in spec["assets"]:
             source = ROOT / asset["development_path"]
-            if (
-                digest(source) != asset["sha256"]
-                or source.stat().st_size != asset["bytes"]
-            ):
+            if digest(source) != asset["sha256"] or source.stat().st_size != asset["bytes"]:
                 raise RuntimeError("model differs from frozen manifest: " + asset["id"])
             install(source, asset["path"])
         # Development source paths are neither useful nor exposed in the bundle.
@@ -290,9 +280,7 @@ def stage(
             "sha256": archive_spec["sha256"],
         },
         "worker_lock_sha256": digest(ROOT / "workers/uv.lock"),
-        "dependencies": [
-            {"name": d.metadata["Name"], "version": d.version} for d in distributions
-        ],
+        "dependencies": [{"name": d.metadata["Name"], "version": d.version} for d in distributions],
         "files": [files[k] for k in sorted(files)],
         "total_bytes": sum(f["bytes"] for f in files.values()),
     }
@@ -300,8 +288,7 @@ def stage(
     shared = [
         name
         for name in sorted(files)
-        if not name.startswith(("models/", "description/"))
-        and name != "sources/llama-source.json"
+        if not name.startswith(("models/", "description/")) and name != "sources/llama-source.json"
     ]
     groups = {
         "media": [
@@ -318,18 +305,14 @@ def stage(
             required_assets = list(profile["assets"])
             if profile["id"] == "pose.rtmpose-t":
                 required_assets += profiles["vision.yolox-nano"]["assets"]
-            groups[profile["id"]] = sorted(
-                set(shared + [assets[name] for name in required_assets])
-            )
+            groups[profile["id"]] = sorted(set(shared + [assets[name] for name in required_assets]))
             if profile["id"] == "description.lfm25-450m":
                 groups[profile["id"]] += [
                     "description/bin/llama-server",
                     "sources/llama-source.json",
                 ]
                 groups[profile["id"]].sort()
-    manifest["dependency_groups"] = {
-        key: value for key, value in groups.items() if value
-    }
+    manifest["dependency_groups"] = {key: value for key, value in groups.items() if value}
     (destination / "runtime.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     )

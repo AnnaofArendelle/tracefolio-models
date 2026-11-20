@@ -47,9 +47,7 @@ def audit(paths, target, root=None):
         if not header.startswith(b"\x7fELF"):
             continue
         validate_elf_header(header, target)
-        symbols = subprocess.check_output(
-            ["readelf", "--wide", "--dyn-syms", str(path)], text=True
-        )
+        symbols = subprocess.check_output(["readelf", "--wide", "--dyn-syms", str(path)], text=True)
         required = sorted(
             set(
                 re.findall(
@@ -60,9 +58,7 @@ def audit(paths, target, root=None):
         )
         if any(tuple(map(int, v.split("."))) > BASELINE for v in required):
             raise ValueError(f"{path}: requires glibc beyond 2.35: {required}")
-        dynamic = subprocess.check_output(
-            ["readelf", "--wide", "--dynamic", str(path)], text=True
-        )
+        dynamic = subprocess.check_output(["readelf", "--wide", "--dynamic", str(path)], text=True)
         needed = re.findall(r"\(NEEDED\).*?\[(.*?)\]", dynamic)
         expanded = []
         for name in needed:
@@ -71,17 +67,13 @@ def audit(paths, target, root=None):
                 if (
                     root is not None and not candidate.is_relative_to(root)
                 ) or candidate not in elf:
-                    raise ValueError(
-                        f"{path}: absent relative loader dependency {name}"
-                    )
+                    raise ValueError(f"{path}: absent relative loader dependency {name}")
                 expanded.append(candidate.name)
             else:
                 expanded.append(name)
         missing = set(expanded) - SYSTEM - bundled
         if missing:
-            raise ValueError(
-                f"{path}: unbundled native dependencies: {sorted(missing)}"
-            )
+            raise ValueError(f"{path}: unbundled native dependencies: {sorted(missing)}")
         out.append({"path": str(path), "required_glibc": required, "needed": needed})
     return {"schema": 1, "target": target, "minimum_glibc": "2.35", "elf_files": out}
 

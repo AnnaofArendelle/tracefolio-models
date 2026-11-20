@@ -52,7 +52,5 @@ if __name__ == "__main__":
     if args.action == "write":
         receipt.write_text(json.dumps(actual, indent=2) + "\n")
     elif json.loads(receipt.read_text()) != actual:
-        raise ValueError(
-            "portable media receipt does not match source/configuration/binaries"
-        )
+        raise ValueError("portable media receipt does not match source/configuration/binaries")
     print(json.dumps({"media": "verified", "action": args.action}))

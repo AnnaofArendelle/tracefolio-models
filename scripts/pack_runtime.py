@@ -19,12 +19,8 @@ def pack(source: Path, destination: Path):
     destination.parent.mkdir(parents=True, exist_ok=True)
     temp = destination.with_suffix(".tmp")
     with temp.open("wb") as output:
-        with gzip.GzipFile(
-            filename="", mode="wb", compresslevel=6, fileobj=output, mtime=0
-        ) as gz:
-            with tarfile.open(
-                fileobj=gz, mode="w|", format=tarfile.USTAR_FORMAT
-            ) as archive:
+        with gzip.GzipFile(filename="", mode="wb", compresslevel=6, fileobj=output, mtime=0) as gz:
+            with tarfile.open(fileobj=gz, mode="w|", format=tarfile.USTAR_FORMAT) as archive:
                 info = tarfile.TarInfo("runtime.json")
                 info.size = len(raw)
                 info.mode = 0o600
@@ -34,10 +30,7 @@ def pack(source: Path, destination: Path):
                     if path.is_symlink():
                         raise ValueError("symlink in runtime staging")
                     with path.open("rb") as stream:
-                        if (
-                            hashlib.file_digest(stream, "sha256").hexdigest()
-                            != entry["sha256"]
-                        ):
+                        if hashlib.file_digest(stream, "sha256").hexdigest() != entry["sha256"]:
                             raise ValueError("staged file changed: " + entry["path"])
                         if path.stat().st_size != entry["bytes"]:
                             raise ValueError("staged file size changed")

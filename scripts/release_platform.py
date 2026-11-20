@@ -45,10 +45,7 @@ def validate_elf_header(header: bytes, target: str) -> None:
         raise ValueError("unsupported ELF release target")
     if len(header) < 20 or header[4:6] != b"\x02\x01":
         raise ValueError("release native files require little-endian ELF64")
-    if (
-        struct.unpack_from("<H", header, 18)[0]
-        != {"linux-amd64": 62, "linux-arm64": 183}[target]
-    ):
+    if struct.unpack_from("<H", header, 18)[0] != {"linux-amd64": 62, "linux-arm64": 183}[target]:
         raise ValueError("native ELF member differs from the release architecture")
 
 

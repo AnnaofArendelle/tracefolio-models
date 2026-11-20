@@ -24,9 +24,7 @@ def digest(path: Path) -> str:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def fetch(
-    url: str, path: Path, checksum: str | None = None, size: int | None = None
-) -> Path:
+def fetch(url: str, path: Path, checksum: str | None = None, size: int | None = None) -> Path:
     if path.exists():
         if checksum and digest(path) != checksum:
             raise ValueError(f"existing input differs from lock: {path}")
@@ -41,9 +39,7 @@ def fetch(
     with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as output:
         temp = Path(output.name)
         try:
-            request = Request(
-                url, headers={"User-Agent": "Tracefolio-release-inputs/1"}
-            )
+            request = Request(url, headers={"User-Agent": "Tracefolio-release-inputs/1"})
             with urlopen(request, timeout=90) as response:
                 shutil.copyfileobj(response, output, length=1024 * 1024)
             output.flush()
@@ -100,16 +96,12 @@ def source_inputs() -> None:
         entry = json.loads(lock.read_text())
         url = entry["url"]
         if entry["component"] == "onnxruntime-sherpa":
-            url = json.loads((locks / "source-mirrors.json").read_text())["sources"][0][
-                "url"
-            ]
+            url = json.loads((locks / "source-mirrors.json").read_text())["sources"][0]["url"]
         fetch(
             url,
             ROOT
             / "build/sources"
-            / entry.get(
-                "filename", unquote(urlsplit(entry["url"]).path.rsplit("/", 1)[-1])
-            ),
+            / entry.get("filename", unquote(urlsplit(entry["url"]).path.rsplit("/", 1)[-1])),
             entry["sha256"],
             entry["bytes"],
         )

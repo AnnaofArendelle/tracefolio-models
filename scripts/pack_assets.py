@@ -27,15 +27,11 @@ def package(runtime: Path, destination: Path):
         (ROOT / f"packaging/manifests/native-components{suffix}.json").read_text()
     )
     manifest = json.loads((runtime / "runtime.json").read_text())
-    revision = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-    ).strip()
+    revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     packages = []
     relationships = []
     for dependency in manifest["dependencies"]:
-        identifier = "SPDXRef-python-" + re.sub(
-            r"[^A-Za-z0-9.-]", "-", dependency["name"]
-        )
+        identifier = "SPDXRef-python-" + re.sub(r"[^A-Za-z0-9.-]", "-", dependency["name"])
         packages.append(
             {
                 "SPDXID": identifier,
@@ -60,9 +56,7 @@ def package(runtime: Path, destination: Path):
                 "licenseConcluded": "NOASSERTION",
                 "licenseDeclared": asset["license"],
                 "copyrightText": asset["attribution"],
-                "checksums": [
-                    {"algorithm": "SHA256", "checksumValue": asset["sha256"]}
-                ],
+                "checksums": [{"algorithm": "SHA256", "checksumValue": asset["sha256"]}],
                 "comment": "Weight license: " + asset["license"],
             }
         )
@@ -70,10 +64,7 @@ def package(runtime: Path, destination: Path):
         native = runtime / component["runtime_path"]
         with native.open("rb") as stream:
             checksum = hashlib.file_digest(stream, "sha256").hexdigest()
-        if (
-            checksum != component["sha256"]
-            or native.stat().st_size != component["bytes"]
-        ):
+        if checksum != component["sha256"] or native.stat().st_size != component["bytes"]:
             raise ValueError("native source inventory differs: " + component["id"])
         for notice in component["licenses"]:
             if (
@@ -83,8 +74,7 @@ def package(runtime: Path, destination: Path):
                 raise ValueError("native license differs: " + notice["path"])
         packages.append(
             {
-                "SPDXID": "SPDXRef-native-"
-                + re.sub(r"[^A-Za-z0-9.-]", "-", component["id"]),
+                "SPDXID": "SPDXRef-native-" + re.sub(r"[^A-Za-z0-9.-]", "-", component["id"]),
                 "name": component["name"],
                 "versionInfo": component["version"],
                 "downloadLocation": component["upstream_source_url"],
@@ -92,9 +82,7 @@ def package(runtime: Path, destination: Path):
                 "licenseConcluded": "NOASSERTION",
                 "licenseDeclared": component["license"],
                 "copyrightText": "NOASSERTION",
-                "checksums": [
-                    {"algorithm": "SHA256", "checksumValue": component["sha256"]}
-                ],
+                "checksums": [{"algorithm": "SHA256", "checksumValue": component["sha256"]}],
             }
         )
     for name, path in [
@@ -110,13 +98,9 @@ def package(runtime: Path, destination: Path):
                 "downloadLocation": "NOASSERTION",
                 "filesAnalyzed": False,
                 "licenseConcluded": "NOASSERTION",
-                "licenseDeclared": "MIT"
-                if name == "llama-server"
-                else "GPL-3.0-or-later",
+                "licenseDeclared": "MIT" if name == "llama-server" else "GPL-3.0-or-later",
                 "copyrightText": "NOASSERTION",
-                "checksums": [
-                    {"algorithm": "SHA256", "checksumValue": entry["sha256"]}
-                ],
+                "checksums": [{"algorithm": "SHA256", "checksumValue": entry["sha256"]}],
             }
         )
     packages.append(
@@ -176,9 +160,7 @@ def package(runtime: Path, destination: Path):
         sources = []
         for name in sorted(required):
             lock = json.loads((ROOT / "packaging/locks" / name).read_text())
-            filename = lock.get(
-                "filename", unquote(urlsplit(lock["url"]).path.rsplit("/", 1)[-1])
-            )
+            filename = lock.get("filename", unquote(urlsplit(lock["url"]).path.rsplit("/", 1)[-1]))
             path = ROOT / "build/sources" / filename
             with path.open("rb") as stream:
                 checksum = hashlib.file_digest(stream, "sha256").hexdigest()
@@ -196,9 +178,7 @@ def package(runtime: Path, destination: Path):
             re.I,
         )
         for distribution in site.glob("*.dist-info"):
-            fields = Parser().parsestr(
-                (distribution / "METADATA").read_text(errors="replace")
-            )
+            fields = Parser().parsestr((distribution / "METADATA").read_text(errors="replace"))
             location = notices / "python" / distribution.name
             location.mkdir(parents=True, exist_ok=True)
             shutil.copy2(distribution / "METADATA", location / "METADATA")
@@ -207,9 +187,7 @@ def package(runtime: Path, destination: Path):
                 for entry in distribution.rglob("*")
                 if entry.is_file() and license_names.match(entry.name)
             }
-            for record in csv.reader(
-                (distribution / "RECORD").read_text().splitlines()
-            ):
+            for record in csv.reader((distribution / "RECORD").read_text().splitlines()):
                 relative = Path(record[0])
                 if relative.is_absolute() or ".." in relative.parts:
                     continue
@@ -223,14 +201,8 @@ def package(runtime: Path, destination: Path):
                 if not entry.is_file():
                     raise FileNotFoundError("declared license missing: " + str(entry))
                 found.add(entry)
-            if (
-                not found
-                and not fields.get("License")
-                and not fields.get("License-Expression")
-            ):
-                raise ValueError(
-                    "missing Python license metadata: " + distribution.name
-                )
+            if not found and not fields.get("License") and not fields.get("License-Expression"):
+                raise ValueError("missing Python license metadata: " + distribution.name)
             for entry in sorted(found):
                 dest = location / entry.relative_to(site)
                 dest.parent.mkdir(parents=True, exist_ok=True)
@@ -239,9 +211,7 @@ def package(runtime: Path, destination: Path):
                 if package["SPDXID"] == "SPDXRef-python-" + re.sub(
                     r"[^A-Za-z0-9.-]", "-", fields["Name"].lower().replace("_", "-")
                 ):
-                    package["licenseDeclared"] = fields.get(
-                        "License-Expression", "NOASSERTION"
-                    )
+                    package["licenseDeclared"] = fields.get("License-Expression", "NOASSERTION")
         for path in site.rglob("*"):
             if path.is_file() and path.suffix in {
                 ".py",
@@ -268,9 +238,7 @@ def package(runtime: Path, destination: Path):
                     "source_revision": subprocess.check_output(
                         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
                     ).strip(),
-                    "runtime_manifest": json.loads(
-                        (runtime / "runtime.json").read_text()
-                    ),
+                    "runtime_manifest": json.loads((runtime / "runtime.json").read_text()),
                     "native_sources": sources,
                 },
                 ensure_ascii=False,
@@ -298,9 +266,7 @@ def package(runtime: Path, destination: Path):
                 + "/"
                 + target,
                 "creationInfo": {
-                    "created": datetime.now(timezone.utc).strftime(
-                        "%Y-%m-%dT%H:%M:%SZ"
-                    ),
+                    "created": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                     "creators": ["Tool: Tracefolio model pack builder"],
                 },
                 "hasExtractedLicensingInfos": [
